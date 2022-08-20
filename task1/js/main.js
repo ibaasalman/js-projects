@@ -2,10 +2,19 @@ items = [];
 id = 0;
 const cont = document.querySelector('.cont');
 
+const savetolocal = ()=>{
+
+}
 const deletHandler = (elm) => {
     let confirmAction = confirm("Are you sure to delet this item ?");
-    console.log(elm.target.parentNode)
-  
+    if(confirmAction == true){
+        deletedID = elm.target.parentNode.firstChild.value;
+        items = items.filter((prod)=>{
+            return prod.id != deletedID;
+        });
+        elm.target.parentNode.remove();
+        savetolocal();
+    }
 }
 const addItem = (element)=>{
     item=  document.createElement('div');
@@ -17,6 +26,11 @@ const addItem = (element)=>{
         img = document.createElement('img');
         img.setAttribute('src',element.img)
     
+        hiddenId = document.createElement('input');
+        hiddenId.setAttribute("value",element.id);
+        hiddenId.setAttribute("id","hiddenid");
+        hiddenId.style.display = "none";
+
         title =  document.createElement('span');
         title.classList.add('ititle');
         t2 = document.createTextNode(element.title);
@@ -43,6 +57,7 @@ const addItem = (element)=>{
         deletbutton.appendChild(t6);
         deletbutton.addEventListener('click',deletHandler)
     
+       item.appendChild(hiddenId);
        item.appendChild(badge);
        item.appendChild(img);
        item.appendChild(title);
@@ -81,6 +96,7 @@ btn.addEventListener('click', () => {
     }
     items.push(myitem);
     addItem(myitem);
+    savetolocal();
 })
 
 
