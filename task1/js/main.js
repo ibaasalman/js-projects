@@ -2,10 +2,32 @@ items = [];
 id = 0;
 const cont = document.querySelector('.cont');
 const btn = document.querySelector('.addbutton');
-
 storge = localStorage.getItem("task1prods")
+const colorRe = /[0-9A-Fa-f]{6}/g;
 
-
+const validation = (item)=>{
+    if(item.title == "" || item.title == null){
+        alert("please type a title")
+        return false;
+    }
+    else if(item.price == "" && typeof item.price != 'number'){
+        alert("please inter valid price")
+        return false;
+    }
+    else if(item.img == ""){
+        alert("please inter valid img")
+        return false;
+    }
+    else if(item.btext == ""){
+        alert("please type some badge text")
+        return false;
+    }
+    else if(item.bcolor == "" || !colorRe.test(item.bcolor)){
+        alert("please inter valid badge color")
+        return false;
+    }
+    return true;
+}
 
 const savetolocal = ()=>{
     localStorage.setItem("task1id",id);
@@ -41,18 +63,22 @@ const btnaddhandler = () => {
         btext,
         bcolor
     }
-    items.push(myitem);
-    addItem(myitem);
-    savetolocal();
-    fillform({
-        id : '',
-        title : '',
-        price : '',
-        img : '',
-        des : '' ,
-        btext : '' ,
-        bcolor :''
-    })}
+
+    if(validation(myitem)){
+        items.push(myitem);
+        addItem(myitem);
+        savetolocal();
+        fillform({
+            id : '',
+            title : '',
+            price : '',
+            img : '',
+            des : '' ,
+            btext : '' ,
+            bcolor :''
+        })
+    }
+  }
 
 const btnedithandler = () => {
     let oldid = document.getElementById("hideid").value;
@@ -72,23 +98,26 @@ const btnedithandler = () => {
         btext,
         bcolor
     }
-    let index = items.findIndex((item)=>{
-        return item.id == oldid
-    })
-    items[index] = myitem;
-    savetolocal();
-    fillform({
-        id:'',
-        title : '',
-        price : '',
-        img : '',
-        des : '' ,
-        btext : '' ,
-        bcolor :''
-    })
-    refresh();
-    btn.innerHTML = 'Add product';
-    btn.mode = "";
+
+    if(validation(myitem)){
+        let index = items.findIndex((item)=>{
+            return item.id == oldid
+        })
+        items[index] = myitem;
+        savetolocal();
+        fillform({
+            id:'',
+            title : '',
+            price : '',
+            img : '',
+            des : '' ,
+            btext : '' ,
+            bcolor :''
+        })
+        refresh();
+        btn.innerHTML = 'Add product';
+        btn.mode = "";
+    }
 }
 const editHandler = (elm) => {
         editID = elm.target.parentNode.firstChild.value;
