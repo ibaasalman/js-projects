@@ -3,9 +3,15 @@ id = 0;
 const cont = document.querySelector('.cont');
 const btn = document.querySelector('.addbutton');
 
-const savetolocal = ()=>{
+storge = localStorage.getItem("task1prods")
 
+
+
+const savetolocal = ()=>{
+    localStorage.setItem("task1id",id);
+    localStorage.setItem("task1prods",JSON.stringify(items));
 }
+
 const deletHandler = (elm) => {
     let confirmAction = confirm("Are you sure to delet this item ?");
     if(confirmAction == true){
@@ -110,6 +116,7 @@ const addItem = (element)=>{
         badge.classList.add('badge');
         t1 = document.createTextNode(element.btext);
         badge.appendChild(t1);
+        badge.style.background = element.bcolor ;
         img = document.createElement('img');
         img.setAttribute('src',element.img)
     
@@ -176,4 +183,9 @@ else{
 )
 
 
-const edit = document.querySelectorAll('.btnedit');
+
+if( storge !== null ){
+    items = JSON.parse(storge);
+    id = localStorage.getItem("task1id");
+    refresh()
+}
