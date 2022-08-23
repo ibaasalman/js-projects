@@ -24,7 +24,7 @@ const validation = (item) => {
     prvmsg.previousSibling.classList.remove("glow");
     prvmsg.remove();
   }
-  if (item.title == "" || item.title == null) {
+  if (!item.title) {
     showError(inputTitle,"please type a title")
     return false;
   } else if (item.price == "" && typeof item.price != "number") {
