@@ -16,7 +16,7 @@ fetch(api).then(res=>res.json()).then(res=>{
     var data = google.visualization.arrayToDataTable(myarr);
 
     // Optional; add a title and set the width and height of the chart
-    var options = {'title':'cryptocurrency market cap chart', 'width':650, 'height':500};
+    var options = {'title':'cryptocurrency market cap chart', 'width':'100%', 'height':500};
 
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
