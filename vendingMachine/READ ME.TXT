@@ -1,0 +1,13 @@
+to run this app use local server
+for VsCODE 
+1- open vscode
+2- open the project folder
+3- click right after open index.html
+4- run with live server ( you should install it before from vscode extintion store)
+
+or you can use it from this link directly : 
+https://ibaasalman.github.io/js-projects/vendingMachine/
+
+
+ibaa salman 20/10/2022 
+ibaasalman0@gmail.com
