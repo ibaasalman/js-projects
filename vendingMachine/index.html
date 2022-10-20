@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+  
+    <div class="cont">
+      <div class="machine">
+        <div class="labels">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+          <div>E</div>
+        </div>
+        <div class="labels2">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+        <div class="snackslot">
+        </div>
+        <div class="box"></div>
+        <div class="screen">use keypad to select any item</div>
+        <div class="keypad">
+          <button val="A">A</button>
+          <button val="B">B</button>
+          <button val="C">C</button>
+          <button val="D">D</button>
+          <button val="E">E</button>
+          <button val="1">1</button>
+          <button val="2">2</button>
+          <button val="3">3</button>
+          <button val="4">4</button>
+          <button val="5">5</button>
+          <button val="R" style="background-color: var(--red)">R</button>
+          <button val="inter" style="background-color: var(--green)">></button>
+        </div>
+        <div class="moneyslot">
+          <div></div>
+          insert money here
+        </div>
+      </div>
+      <div class="insertmoney">
+        <p>Enter the number to be paid <span class="curlabel">$ = USD | € = euro</span></p>
+        <div class="coins">
+          <div class="coin money" val="0.10" cur="c">10c</div>
+          <div class="coin money" val="0.20" cur="c">20c</div>
+          <div class="coin money" val="0.50" cur="c">50c</div>
+          <div class="coin money" val="1.00" cur="$">1$</div>
+          <div class="coin money" val="2.00" cur="$">2$</div>
+          <div class="coin money" val="1.00" cur="€">1€</div>
+          <div class="note money" val="20.00" cur="$"><span val="20.00" cur="$">20$</span></div>
+          <div class="note money" val="50.00" cur="$"><span val="50.00" cur="$">50$</span></div>
+          <div class="note money" val="100.00" cur="$"><span val="100.00" cur="$">100$</span></div>
+          <div class="note money" val="50.00" cur="€"><span val="50.00" cur="€">50€</span></div>
+        </div>
+        <!-- <button>Pay</button>-->
+      </div>
+    </div>
+    <script type="module"  src="js/main.js"></script>
+  </body>
+</html>
