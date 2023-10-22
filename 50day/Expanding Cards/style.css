@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500&family=Raleway:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Raleway", sans-serif;
+  background-color: #eee;
+}
+.cont {
+  width: 90vw;
+  max-width: 800px;
+  display: flex;
+  gap: 10px;
+  flex-flow: row nowrap;
+}
+.card {
+  height: 300px;
+  flex-basis: 20%;
+  background-size: cover !important;
+  position: relative;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+.card p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 40px;
+  opacity: 0;
+  text-shadow: 2px 2px 6px black, 0px 0px 6px red;
+  transition: opacity 0.7s ease-in-out;
+}
+.card.active {
+  flex-basis: 100%;
+}
+.card.active p {
+  opacity: 1;
+}
