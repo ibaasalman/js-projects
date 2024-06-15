@@ -434,4 +434,11 @@ body {
   .followMe .list a {
     font-size: 10px;
   }
+  .stickers img{
+    width: 50px;
+    height: 50px;
+  }
+  #sticker {
+    max-width: 35%;
+  }
 }
