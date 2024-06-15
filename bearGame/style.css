@@ -1,0 +1,437 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500&family=Raleway:wght@400;600&display=swap");
+@font-face {
+  font-family: "ARCADECLASSIC"; /* Name of the font */
+  src: url("ARCADECLASSIC.ttf") format("truetype"); /* Path to your TTF file */
+}
+:root {
+  --main: #b33939;
+  --Dpad: #2f3640;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+#sticker {
+  max-width: 40%;
+  max-height: 230px;
+  position: absolute;
+  bottom: 26px;
+  right: 25%;
+  /*filter: drop-shadow(1px 5px 0 black) drop-shadow(-1px -1px 0 black);*/
+  opacity: 0.8;
+}
+.stickers{
+  display: flex;
+justify-content: center;
+  flex-flow: row wrap;
+}
+.stickers img{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  background: var(--Dpad);
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 0px;
+  padding: 3px;
+}
+#overlay,
+#introOverlay,
+#followMeOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #0000009e;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: none;
+}
+#introOverlay {
+  background-color: #000000cc;
+  text-transform: uppercase;
+  font-family: "Public Pixel", "ARCADECLASSIC";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 1000;
+}
+#introOverlay p {
+  max-width: 450px;
+  margin: 20px 0px;
+}
+
+#selectLang {
+  overflow: hidden;
+  padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+#selectLang > div {
+  max-width: 200px;
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+#selectLang > div:hover,
+#selectLang > div:active {
+  background-color: #ff1b1b77;
+}
+#selectLang img {
+  border: 2px solid #ffffffc1;
+  border-radius: 10px;
+  width: 100%;
+}
+.settings {
+  position: relative;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 470px;
+  height: 500px;
+  text-transform: uppercase;
+  background: #35374b;
+  max-width: 90%;
+  margin: 0px auto;
+  position: absolute;
+  top: -500px;
+  border-radius: 0px 0px 10px 10px;
+  border: 2px solid #545776;
+  z-index: 100;
+  color: #eee;
+  padding: 50px 20px;
+  font-family: "Public Pixel";
+  font-size: 12px;
+  transition: 1s all ease-in-out;
+}
+.NavButtons {
+  position: absolute;
+  top: 103%;
+  right: 0px;
+  width: 100%;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+.NavButtons .cont {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+#settingsButton,
+#FollowButton,
+#FullButton {
+  background: var(--main);
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #35374b;
+  cursor: pointer;
+  width: fit-content;
+}
+#FullButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#FullButton img {
+  width: 18px;
+  margin: 0px 3px;
+}
+.NavButtons .cont div:active {
+  background: var(--Dpad) !important;
+}
+.settings input {
+  padding: 5px 10px;
+  font-family: "Public Pixel";
+  font-size: 10px;
+}
+.settings hr {
+  margin: 20px 0px;
+}
+.colors {
+  display: flex;
+  justify-content: center;
+}
+.colors > div {
+  width: 40px;
+  height: 40px;
+  margin: 8px 2px;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  cursor: pointer;
+}
+.colors > div.active {
+  border: 3px solid #ffd700;
+}
+body {
+  padding: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Raleway", sans-serif;
+  background: #faebd7;
+}
+.body {
+  position: relative;
+  background-color: var(--main);
+  width: 400px;
+  max-width: 100%;
+  height: 600px;
+  border-radius: 15px 15px 80px 15px;
+  border: 5px solid #2f3640;
+  box-shadow: inset 0 -4px 16px 0 rgba(0, 0, 0, 0.5),
+    0 40px 60px 0px rgba(0, 0, 0, 0.6);
+}
+.top {
+  height: 30px;
+  background: #344955;
+  border-bottom: 3px solid #2f3640;
+}
+.screenSection {
+  height: 250px;
+  background-color: #35374b;
+  margin: 20px;
+  margin-bottom: 10px;
+  border: 3px solid #2f3640;
+
+  border-radius: 10px 10px 40px 10px;
+}
+.screen {
+  background: #78a083;
+  height: 225px;
+  width: 250px;
+  margin: auto;
+  border: 3px solid #2f3640;
+}
+
+.brand {
+  font-family: "Public Pixel";
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 10px 20px;
+  text-align: center;
+  color: var(--Dpad);
+}
+#changeBrand {
+  background-color: var(--main);
+  color: #eee;
+  font-family: "Public Pixel";
+  font-size: 10px;
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.controllers {
+  height: 200px;
+  margin: 0px 20px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dpad,
+.actionBTNS {
+  width: 130px;
+  height: 130px;
+  background: #c5c7c7;
+  border: 3px solid #40424b;
+}
+
+.actionBTNS {
+  width: 145px;
+  height: 65px;
+  border-radius: 50px;
+  padding: 10px;
+  transform: rotate(330deg);
+}
+.a,
+.b {
+  background: #e84118;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.btn {
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  outline: none;
+  text-transform: capitalize;
+  box-shadow: inset 0 0px 6px 0 rgba(0, 0, 0, 0.8);
+}
+.btn:active {
+  font-size: 16px;
+  box-shadow: inset 0 0px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+.optionBTNS {
+  width: 125px;
+  margin: 30px auto;
+  height: 30px;
+  justify-content: space-around;
+}
+.optionBTNS .btn {
+  background-color: #c5c7c7;
+  width: 60px;
+  padding: 3px 0px;
+  text-align: center;
+  transform: rotate(330deg);
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.dpad {
+  border-radius: 50%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.up,
+.left,
+.down,
+.right,
+.center {
+  width: 35px;
+  height: 35px;
+  color: #fff;
+  background-color: var(--Dpad);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.up {
+  border-radius: 5px 5px 0px 0px;
+}
+.down {
+  border-radius: 0px 0px 5px 5px;
+}
+.right {
+  border-radius: 0px 5px 5px 0px;
+}
+.left {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.speaker {
+  width: 80px;
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
+  transform: rotate(330deg);
+}
+.speaker .h {
+  height: 50px;
+  width: 7px;
+  border-radius: 10px;
+  background: #40424b;
+  box-shadow: inset 0 0px 6px 0 rgba(0, 0, 0, 0.7);
+}
+
+.followMe {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 100px);
+  background-color: var(--Dpad);
+  color: #fff;
+  font-family: "Public Pixel";
+  border: 4px solid var(--main);
+  width: 500px;
+  max-width: 90%;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 9999;
+  opacity: 0; /* Initial opacity set to 0 */
+  transform: scale(0);
+  transition: opacity 0.4s ease-in-out, transform 0.5s ease-in-out; /* Apply transition to opacity and transform */
+}
+
+.followMeActive {
+  opacity: 1; /* Change opacity to 1 to make it visible */
+  transform: scale(1);
+}
+.followMe.cont {
+  position: relative;
+}
+.followMe .close {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b33939;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.followMe .close:active,
+.followMe .close:hover {
+  background-color: #2f3640;
+}
+.followMe .list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+}
+.followMe .list a {
+  text-decoration: none;
+  padding: 7px 10px;
+  color: #fff;
+  background-color: var(--main);
+}
+.followMe .list a:active,
+.followMe .list a:hover {
+  opacity: 0.7;
+}
+@media only screen and (max-width: 600px) {
+  #selectLang > div {
+    width: 80px;
+    font-size: 8px;
+  }
+  .NavButtons {
+    font-size: 10px;
+  }
+  #FullButton img {
+    width: 10px;
+    margin: 0px 0px;
+  }
+  .followMe .list a {
+    font-size: 10px;
+  }
+}

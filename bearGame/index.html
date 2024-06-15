@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adventure of a Bear</title>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="followMe">
+      <div class="cont">
+        <div class="close" onclick="HideFollowMe()">X</div>
+        <p>Follow Me</p>
+        <div class="list">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/ibaa-salman-6a93b7233/"
+            >LinkedIn</a
+          >
+          <a target="_blank" href="https://github.com/ibaasalman">GitHub</a>
+          <a target="_blank" href="https://www.instagram.com/ibaasalman/">
+            Instagram</a
+          >
+        </div>
+      </div>
+    </div>
+    <div id="followMeOverlay"></div>
+    <div id="overlay"></div>
+    <div id="introOverlay">
+      <div>click here to continue</div>
+    </div>
+    <div class="settings navbar">
+      customize your device color :
+      <div class="colors">
+        <div style="background-color: #c23616" Dpad="#2f3640"></div>
+        <div style="background-color: #8c7ae6" Dpad="#718093"></div>
+        <div style="background-color: #40739e" Dpad="#273c75"></div>
+        <div style="background-color: #6d214f" Dpad="#B33771"></div>
+        <div style="background-color: #e1b12c" Dpad="#2f3640"></div>
+        <div
+          style="background-color: #b33939"
+          Dpad="#2f3640"
+          class="active"
+        ></div>
+      </div>
+      choose a sticker :
+      <div class="stickers">
+       
+      </div>
+      <button id="changeBrand" onclick="deleteSticker()" > Delete Sticker </button>
+      <hr />
+      Your Name ( Device label ) :
+      <input type="text" id="newBrand" maxlength="20" placeholder="Type here ... " />
+      <button id="changeBrand" onclick="changeBrand()">change Label</button>
+      <div class="NavButtons">
+        <div class="cont">
+          <div id="settingsButton" onclick="toggleCustomization()">
+            Customization
+          </div>
+          <div id="FullButton" onclick="ToggleFullScreen()">
+            <img src="img/FullScreen.png" />
+          </div>
+          <div id="FollowButton" onclick="ToggleFollowMe()">Follow me</div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="top"></div>
+      <div class="screenSection flex">
+        <canvas class="screen" id="game"></canvas>
+      </div>
+      <img id="sticker" src=""/>
+      <div class="brand">GameBoy</div>
+      <div class="controllers">
+        <div class="flex">
+          <div class="dpad">
+            <div class="up btn">u</div>
+            <div class="flex">
+              <div class="left btn">l</div>
+              <div class="center btn">C</div>
+              <div class="right btn">r</div>
+            </div>
+            <div class="down btn">d</div>
+          </div>
+          <div class="actionBTNS flex">
+            <div class="a btn">A</div>
+            <div class="b btn">B</div>
+          </div>
+        </div>
+        <div class="optionBTNS flex">
+          <div class="btn start">Start</div>
+          <div class="btn">select</div>
+        </div>
+      </div>
+      <div class="speaker flex">
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+        <div class="h"></div>
+      </div>
+    </div>
+    <div id="assets" style="display: none">
+      <img src="assets/img/apple-bg.gif" id="apple-bg" />
+      <img src="assets/img/bg.gif" id="bg" />
+      <img src="assets/img/bgTrees.gif" id="bgTrees" />
+      <img src="assets/img/walkingBear.gif" id="bear" />
+      <img src="assets/img/bee.gif" id="bee" />
+      <img src="assets/img/apple.gif" id="apple" />
+      <img src="assets/img/bomb.gif" id="bomb" />
+      <img src="assets/img/bear-apple.gif" id="bear-apple" />
+      <img src="assets/img/heart.gif" id="heart" />
+      <img src="assets/img/platform.gif" id="platform" />
+      <img src="assets/img/platformlong.gif" id="platformlong" />
+      <img src="assets/img/mapPiece.gif" id="mapPiece" />
+      <img src="assets/img/introbg1-en.gif" id="introbg1-en" />
+      <img src="assets/img/introbg2-en.gif" id="introbg2-en" />
+      <img src="assets/img/introbg1-es.gif" id="introbg1-es" />
+      <img src="assets/img/introbg2-es.gif" id="introbg2-es" />
+      <img src="assets/img/introbg1-ar.gif" id="introbg1-ar" />
+      <img src="assets/img/introbg2-ar.gif" id="introbg2-ar" />
+      <img src="assets/img/l1_1.gif" id="l1_1" />
+      <img src="assets/img/l1_2.gif" id="l1_2" />
+      <img src="assets/img/l2_1.gif" id="l2_1" />
+      <img src="assets/img/l2_2.gif" id="l2_2" />
+      <img src="assets/img/l3_1.gif" id="l3_1" />
+      <img src="assets/img/l3_2.gif" id="l3_2" />
+      <img src="assets/img/l4_1.gif" id="l4_1" />
+      <img src="assets/img/l4_2.gif" id="l4_2" />
+      <img src="assets/img/l5_1.gif" id="l5_1" />
+      <img src="assets/img/l5_2.gif" id="l5_2" />
+      <img src="assets/img/l6_1.gif" id="l6_1" />
+      <img src="assets/img/l6_2.gif" id="l6_2" />
+      <img src="assets/img/river-bg.gif" id="river-bg" />
+      <img src="assets/img/riverBear.gif" id="riverBear" />
+      <img src="assets/img/trunk.gif" id="trunk" />
+      <img src="assets/img/screws.gif" id="screws"/>
+      <audio id="A_collect" src="Audio/collect.mp3"></audio>
+      <audio id="A_explosion" src="Audio/explosion.mp3"></audio>
+      <audio id="A_fail" src="Audio/fail.mp3"></audio>
+      <audio id="A_levelUp" src="Audio/levelUp.mp3"></audio>
+      <audio id="A_main" src="Audio/main.mp3"></audio>
+      <audio id="A_start" src="Audio/start.mp3"></audio>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
