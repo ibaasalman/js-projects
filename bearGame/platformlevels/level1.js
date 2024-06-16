@@ -69,7 +69,6 @@ export default class Game extends baseLevel{
       { x: 1100, y: this.height - 35 },
       { x: 1200, y: this.height - 35 },
       { x: 1500, y: this.height - 35 },
-      { x: 1550, y: this.height - 35 },
       { x: 1600, y: this.height - 35 },
       { x: 1650, y: this.height - 35 },
       { x: 1700, y: this.height - 35 },
