@@ -66,7 +66,6 @@ export default class Game extends baseLevel{
     this.myScrews = [];
     this.screws = [
       { x: 495, y: this.height - 35 },
-      { x: 1100, y: this.height - 35 },
       { x: 1500, y: this.height - 35 },
       { x: 1550, y: this.height - 35 },
       { x: 1600, y: this.height - 35 },
