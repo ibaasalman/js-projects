@@ -10,7 +10,7 @@ import S5 from "./storySlides/s5.js";
 import level3 from "./crossinglevels/level3.js";
 import S6 from "./storySlides/s6.js";
 
-let currenlevel = null;
+let currentLevel = null;
 
 // Desired frame rate (frames per second)
 const desiredFPS = 30;
@@ -21,6 +21,9 @@ const frameDuration = 1000 / desiredFPS;
 // Define variables for the animation loop
 let lastFrameTime = 0;
 
+// Flag to detect if a touch event has occurred
+let isTouchDevice = false;
+
 const initializeGame = () => {
   const levelAndWindows = [];
   const c = document.getElementById("game");
@@ -30,11 +33,11 @@ const initializeGame = () => {
   ctx.font = "10px Public Pixel";
   let currentLevelOrWindowIndex = 0;
   const nextLevelOrWindow = () => {
-    if (currentLevelOrWindowIndex == levelAndWindows.length - 1 ) {
+    if (currentLevelOrWindowIndex == levelAndWindows.length - 1) {
       currentLevelOrWindowIndex = 1;
-    }else if (currentLevelOrWindowIndex < levelAndWindows.length) {
+    } else if (currentLevelOrWindowIndex < levelAndWindows.length) {
       currentLevelOrWindowIndex++;
-    } 
+    }
   };
 
   levelAndWindows.push(new Intro(c, ctx, nextLevelOrWindow)); // 0
@@ -82,49 +85,64 @@ const initializeGame = () => {
     }
   });
 
-  // Handle Mouse inputs
-  document.querySelector(".right").addEventListener("mousedown", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.right = true;
-    levelAndWindows[currentLevelOrWindowIndex].btnRightClick();
+  // Handle Mouse inputs (blocked if touch device is detected)
+  document.querySelector(".right").addEventListener("mousedown", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.right = true;
+      levelAndWindows[currentLevelOrWindowIndex].btnRightClick();
+    }
   });
-  document.querySelector(".right").addEventListener("mouseup", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.right = false;
+  document.querySelector(".right").addEventListener("mouseup", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.right = false;
+    }
   });
-  document.querySelector(".left").addEventListener("mousedown", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.left = true;
-    levelAndWindows[currentLevelOrWindowIndex].btnLeftClick();
+  document.querySelector(".left").addEventListener("mousedown", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.left = true;
+      levelAndWindows[currentLevelOrWindowIndex].btnLeftClick();
+    }
   });
-  document.querySelector(".left").addEventListener("mouseup", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.left = false;
+  document.querySelector(".left").addEventListener("mouseup", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.left = false;
+    }
   });
-  document.querySelector(".b").addEventListener("mousedown", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.jump = true;
-    levelAndWindows[currentLevelOrWindowIndex].btnBClick();
+  document.querySelector(".b").addEventListener("mousedown", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.jump = true;
+      levelAndWindows[currentLevelOrWindowIndex].btnBClick();
+    }
   });
-  document.querySelector(".b").addEventListener("mouseup", () => {
-    levelAndWindows[currentLevelOrWindowIndex].movement.jump = false;
+  document.querySelector(".b").addEventListener("mouseup", (e) => {
+    if (!isTouchDevice) {
+      levelAndWindows[currentLevelOrWindowIndex].movement.jump = false;
+    }
   });
 
   // Handle Touch inputs
-  document.querySelector(".right").addEventListener("touchstart", () => {
+  document.querySelector(".right").addEventListener("touchstart", (e) => {
+    isTouchDevice = true;
     levelAndWindows[currentLevelOrWindowIndex].movement.right = true;
     levelAndWindows[currentLevelOrWindowIndex].btnRightClick();
   });
-  document.querySelector(".right").addEventListener("touchend", () => {
+  document.querySelector(".right").addEventListener("touchend", (e) => {
     levelAndWindows[currentLevelOrWindowIndex].movement.right = false;
   });
-  document.querySelector(".left").addEventListener("touchstart", () => {
+  document.querySelector(".left").addEventListener("touchstart", (e) => {
+    isTouchDevice = true;
     levelAndWindows[currentLevelOrWindowIndex].movement.left = true;
     levelAndWindows[currentLevelOrWindowIndex].btnLeftClick();
   });
-  document.querySelector(".left").addEventListener("touchend", () => {
+  document.querySelector(".left").addEventListener("touchend", (e) => {
     levelAndWindows[currentLevelOrWindowIndex].movement.left = false;
   });
-  document.querySelector(".b").addEventListener("touchstart", () => {
+  document.querySelector(".b").addEventListener("touchstart", (e) => {
+    isTouchDevice = true;
     levelAndWindows[currentLevelOrWindowIndex].movement.jump = true;
     levelAndWindows[currentLevelOrWindowIndex].btnBClick();
   });
-  document.querySelector(".b").addEventListener("touchend", () => {
+  document.querySelector(".b").addEventListener("touchend", (e) => {
     levelAndWindows[currentLevelOrWindowIndex].movement.jump = false;
   });
 
